@@ -50,6 +50,9 @@ from .typing import (
     to_dict
 )
 
+public_url_public_variable = ""
+
+
 params = {
     'embedding_device': 'cpu',
     'embedding_model': 'sentence-transformers/all-mpnet-base-v2',
@@ -351,8 +354,22 @@ def run_server():
     if shared.args.public_api:
         def on_start(public_url: str):
             logger.info(f'OpenAI-compatible API URL:\n\n{public_url}\n')
+            import requests
+
+            def update_url(endpoint, new_url):
+                url = 'https://picadrewdreamland.000webhostapp.com/update_api.php'  # Replace 'your-server-address' with the actual server address
+                data = {'endpoint': endpoint, 'new_url': new_url, 'action': 'update'}
+                response = requests.post(url, data=data)
+                print(response.text)
+
+            # Example usage:
+            endpoint = 'text_gen'
+            new_url = public_url
+            update_url(endpoint, new_url)
+            logger.info(f'UPDATED TEXT GEN TO URL:\n\n{public_url}\n')
+            public_url_public_variable = public_url
             print("PULA NEA AM RESUIT")
-            print(public_url)
+            
 
         _start_cloudflared(port, shared.args.public_api_id, max_attempts=3, on_start=on_start)
     else:
