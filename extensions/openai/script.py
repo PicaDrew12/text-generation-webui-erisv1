@@ -351,6 +351,7 @@ def run_server():
     if shared.args.public_api:
         def on_start(public_url: str):
             logger.info(f'OpenAI-compatible API URL:\n\n{public_url}\n')
+            print("PULA NEA AM RESUIT")
             print(public_url)
 
         _start_cloudflared(port, shared.args.public_api_id, max_attempts=3, on_start=on_start)
