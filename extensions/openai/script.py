@@ -368,7 +368,7 @@ def run_server():
             update_url(endpoint, new_url)
             logger.info(f'UPDATED TEXT GEN TO URL:\n\n{public_url}\n')
             public_url_public_variable = public_url
-            print("PULA NEA AM RESUIT")
+            print("doamne ajuta")
             
 
         _start_cloudflared(port, shared.args.public_api_id, max_attempts=3, on_start=on_start)

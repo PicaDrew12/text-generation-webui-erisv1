@@ -14,3 +14,7 @@ context: |-
   {{char}}: unrelated
   {{user}}: Flip a coin for me
   {{char}}: coin-flip
+  {{user}}: What did I ask you to do? Summarize our conversation.
+  {{char}}: unrelated
+  {{user}}: Remember the word monkey for me
+  {{char}}: unrelated
